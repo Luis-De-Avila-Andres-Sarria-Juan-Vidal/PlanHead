@@ -1,0 +1,117 @@
+<!DOCTYPE html>  
+<html lang="es">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="stylesheet" href="Interfazplanahead.css">  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">  
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>  
+    <title>Plan Ahead</title>  
+</head>  
+<body>  
+    <header>  
+        <h1>¡Bienvenido a Plan Ahead Usuario!</h1>  
+    </header>  
+    
+    <div class="container">  
+        <aside class="sidebar-left">  
+            <h3>Bienvenido a Plan Ahead! 🎉</h3>  
+            <p>Estamos encantados de que te unas a nosotros. Plan Ahead es un compañero ideal para gestionar tus actividades diarias de forma sencilla y eficiente. Organiza tus tareas, establece recordatorios y maximiza tu productividad con nuestra interfaz intuitiva. ¡Empecemos a planificar tu éxito hoy!</p>  
+        </aside>  
+        
+        <aside class="sidebar-right">  
+            <h3>Tareas Diarias</h3>  
+            <p>21/02/2025</p>  
+            <div class="task-list">  
+                <div class="task">  
+                    <span>Tarea 1</span>  
+                    <div class="icons">  
+                        <button class="check-btn">✔️</button>  
+                        <button class="remove-btn">❌</button>  
+                        <button class="favorite-btn">⭐</button>  
+                        <button class="edit-btn">✏️</button>  
+                    </div>  
+                </div>  
+                <div class="task">  
+                    <span>Tarea 2</span>  
+                    <div class="icons">  
+                        <button class="check-btn">✔️</button>  
+                        <button class="remove-btn">❌</button>  
+                        <button class="favorite-btn">⭐</button>  
+                        <button class="edit-btn">✏️</button>  
+                    </div>  
+                </div>  
+                <div class="task">  
+                    <span>Tarea 3</span>  
+                    <div class="icons">  
+                        <button class="check-btn">✔️</button>  
+                        <button class="remove-btn">❌</button>  
+                        <button class="favorite-btn">⭐</button>  
+                        <button class="edit-btn">✏️</button>  
+                    </div>  
+                </div>  
+                <div class="task">  
+                    <span>Tarea 4</span>  
+                    <div class="icons">  
+                        <button class="check-btn">✔️</button>  
+                        <button class="remove-btn">❌</button>  
+                        <button class="favorite-btn">⭐</button>  
+                        <button class="edit-btn">✏️</button>  
+                    </div>  
+                </div>  
+            </div>  
+        </aside>  
+    </div>  
+    
+    <div class="calendar" style="margin: 20px;">  
+        <h3>Calendario</h3>  
+        <button id="open-calendar">Abrir Calendario</button>  
+        <input type="text" id="datepicker" style="margin-top: 10px; width: 200px;" /> <!-- Campo de entrada -->  
+        <div id="current-time" style="margin-top: 10px; font-weight: bold;"></div> <!-- Contenedor para la hora -->  
+    </div>  
+    
+    <footer>  
+        <p>&copy; 2025 Plan Ahead. Todos los derechos reservados.</p>  
+    </footer>  
+    
+    <script>  
+        function updateTime() {  
+            const now = new Date();  
+            let hours = now.getHours();  
+            const minutes = String(now.getMinutes()).padStart(2, '0');  
+            const seconds = String(now.getSeconds()).padStart(2, '0');  
+            
+            // Determina AM o PM  
+            const ampm = hours >= 12 ? 'PM' : 'AM';  
+            
+            // Convierte a formato de 12 horas  
+            hours = hours % 12;  
+            hours = hours ? String(hours).padStart(2, '0') : '12'; // El 0 se convierte a 12  
+
+            const timeString = `${hours}:${minutes}:${seconds} ${ampm}`;  
+            document.getElementById("current-time").innerText = timeString; // Actualiza el contenedor de la hora  
+        }  
+
+        // Llama a updateTime cada segundo  
+        setInterval(updateTime, 1000); // Actualiza cada 1000 milisegundos (1 segundo)  
+        
+        // Llama a la función una vez al cargar la página para mostrar la hora inicial  
+        updateTime();  
+        
+        document.addEventListener("DOMContentLoaded", function() {  
+            flatpickr("#datepicker", {  
+                dateFormat: "d/m/Y", // Cambia el formato de la fecha si es necesario  
+                allowInput: true, // Permite la entrada manual del campo  
+                onOpen: function(selectedDate, dateStr) {  
+                    document.querySelector("#datepicker").focus();  
+                }  
+            });  
+
+            // Abrir el calendario al hacer clic en el botón  
+            document.getElementById("open-calendar").addEventListener("click", function() {  
+                document.querySelector("#datepicker")._flatpickr.open(); // Abre el calendario  
+            });  
+        });  
+    </script>  
+</body>  
+</html>  

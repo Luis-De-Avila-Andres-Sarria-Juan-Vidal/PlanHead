@@ -1,0 +1,100 @@
+/* styles.css */  
+
+body {  
+    font-family: 'Arial', sans-serif;  
+    background-image: url('imagenes/fondo\ registro.jpg'); /* Cambia la ruta por la URL de tu imagen */  
+    background-size: cover; /* Para cubrir toda la pantalla */  
+    background-position: center; /* Centra la imagen de fondo */  
+    background-repeat: no-repeat; /* No repetir la imagen */  
+    margin: 0;  
+    padding: 0;  
+    display: flex;  
+    justify-content: center;  
+    align-items: center;  
+    height: 100vh;  
+}  
+
+.container {  
+    background: rgba(255, 255, 255, 0.9); /* Fondo blanco con opacidad */  
+    border-radius: 12px;  
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);  
+    padding: 30px;  
+    width: 400px;  
+    animation: fadeIn 0.5s ease;  
+}  
+
+h2 {  
+    text-align: center;  
+    color: #333;  
+    margin-bottom: 20px;  
+}  
+
+label {  
+    display: block;  
+    margin: 10px 0 5px;  
+    font-weight: bold;  
+    color: #555;  
+}  
+
+input[type="text"],  
+input[type="email"],  
+input[type="password"],  
+select {  
+    width: 100%;  
+    padding: 10px;  
+    border: 1px solid #ccc;  
+    border-radius: 5px;  
+    margin-bottom: 15px;  
+    transition: border-color 0.3s;  
+}  
+
+input:focus,  
+select:focus {  
+    border-color: #5b78e7; /* Color en enfoque */  
+    outline: none;  
+    box-shadow: 0 0 5px rgba(91, 120, 231, 0.5);  
+}  
+
+button {  
+    background-color: #5b78e7;  
+    color: white;  
+    border: none;  
+    border-radius: 5px;  
+    padding: 10px;  
+    cursor: pointer;  
+    width: 100%;  
+    transition: background-color 0.3s, transform 0.3s;  
+    font-size: 16px;  
+}  
+
+button:hover {  
+    background-color: #4a61d4; /* Color cuando se pasa el ratón */  
+    transform: scale(1.05); /* Efecto de escala */  
+}  
+
+p {  
+    text-align: center;  
+    margin-top: 20px;  
+    color: #777;  
+}  
+
+a {  
+    color: #5b78e7;  
+    text-decoration: none;  
+}  
+
+a:hover {  
+    text-decoration: underline; /* Subrayado al pasar el ratón */  
+}  
+
+/* Animación de entrada */  
+@keyframes fadeIn {  
+    from {  
+        opacity: 0;  
+        transform: translateY(-20px);  
+    }  
+    to {  
+        opacity: 1;  
+        transform: translateY(0);  
+    }  
+}  
