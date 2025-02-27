@@ -1,2 +1,2 @@
-# PlanHead
+# PlanAhead
 app de tareas
